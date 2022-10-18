@@ -7,54 +7,100 @@
     <title>momentum</title>
     <link rel="stylesheet" href="./css/owfont-regular.css">
     <link href="./style.css" rel="stylesheet" type="text/css">
-    
+    <link href="./player.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 <body>
 <section class="window">
-  <div class="base">
-   <div class="mus_and_weath"> 
-   <div class="music">ТУТ БУДЕТ MUSIC</div>  
-   <div class="weather"> 
-    <div class="weather_input">
-      <input type="text" class="town" value="Minsk" >
-      <i class="icon_weather owf"></i>
-    </div>  
-      <div class="temper_and_descript">
-        <div class="temperature"> </div>
-        <button class="change_degree">°C</button>
-        <div class="description"></div>
-      </div>
-      <div class="hum_and_wind">
-        <div class="humidity">Humidity:<div class="hum"></div></div>
-        <div class="wind_speed">Wind speed:<div class="wind"></div></div>
-      </div>
-   </div> 
-  </div>
+  
+<div class="base">
+    <div class="main">
+      <div class="mus_and_weath"> 
 
+        <div class="music">
+            <div class="image_artist">
+                  <img class="img_artist" src="" alt="artist_photo">
+               </div>
+            <div class="artist"></div>
+            <div class="composition"></div>
+            <div class="player">
+                 <div class="btns_player">
+                     <button class="previous_song"><i class="material-icons">skip_previous</i>
+                     </button>
+                     <button class="play"><i class="material-icons">play_arrow</i>
+                     </button>
+                     <button class="next_song"><i class="material-icons">skip_next</i></button>
+                  </div>
+                  <div class="volume_range" >
+                     <input class="vol" type="button" >
+                     <input type="range" class="volume_adjusting_range"  name="volume" > 
+                  </div>
 
-
-    <div class="time"></div>
-    
-    <button class="changeTime">12/24</button>
-
-    <div class="today_container">
-        
-          <img class="arrow_left" src="./assets/left.png" alt="arrow_left">
-       <div class="now whiteLayer" >
-        <div class="date"></div>
-        <div class="greetings_container">
-          <span class="greetings"></span>
-          <input class="name" type="text"  value="">
+                  <div class="song_range">
+                     <div class="track_input">
+                        <input type="range" class="track" value="0" min="0" step="1">
+                     </div>
+                     <div class="full_time">
+                        <div class="current_time"></div>
+                        <div class="end_time"></div>
+                     </div>
+                                          
+                  </div>
+             </div>
         </div>
-    </div> 
-          <img class="arrow_right" src="./assets/right.png" alt="arrow_right">
         
-    </div>
+        
+
+        <div class="weather"> 
+             <div class="weather_input">
+                <input type="text" class="town" value="Minsk" >
+                <i class="icon_weather owf"></i>
+             </div>  
+          <div class="temper_and_descript">
+                <div class="temperature"> </div>
+                <button class="change_degree">°C</button>
+                <div class="description"></div>
+          </div>
+          <div class="hum_and_wind">
+                  <div class="humidity">Humidity:<div class="hum"></div></div>
+                  <div class="wind_speed">Wind speed:<div class="wind"></div></div>
+          </div>
+        </div>    
+     </div>
+   <div class="btn_and_time">
+      <div class="time"></div>
+      <button class="changeTime">12/24</button>
+   </div>
+ 
+  <div class="today_container">
+       <div class="arrow_left">&lt;</div>
+        <div class="now whiteLayer" >
+              <div class="date"></div>
+              <div class="greetings_container">
+                   <span class="greetings"></span>
+                   <span class="name" contenteditable="true"></span>
+             </div>
+        </div> 
+        <div class="arrow_right">></div>
   </div> 
-   
+</div>   
+  
+   <div class="quote_container">
+      <div class="arrows">
+          <img class="two_arrows" src="./assets/white-refresh-arrows.svg" alt="two_arrows">
+      </div>
+      <div class="quote"></div>
+      <div class="quote_author"></div>
+   </div> 
+
+ 
+</div> 
 </section>
 </body>
-<script src="./script.js">
-</script>
+<script src="./script.js"></script>
+<script src="./player.js" type="module"></script> 
+<!-- musicInfo не надо,т к он импортирован в player/надо в плеер html написать type module -->
 
 </html>

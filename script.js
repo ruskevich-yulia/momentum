@@ -14,7 +14,11 @@ const weatherIcon = document.querySelector('.icon_weather');
 const descript = document.querySelector('.description');
 const wind = document.querySelector('.wind')
 const changeDegree = document.querySelector('.change_degree')
-let measure = 'metric' ;
+const btnChangeQuote =document.querySelector('.two_arrows');
+const quote = document.querySelector('.quote');
+
+const quoteAuthor = document.querySelector('.quote_author');
+let measure = 'metric';
 
 let is12hFormat = true; //вспомнить..
 
@@ -32,10 +36,9 @@ const getWeather = (city) => {                    //получаем погод�
   const weather = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=2019551c3dcff13aaac860bbee749689&units=${measure}`)
       
 .then(function(result) {
-  console.log(result)
-  return result.json()
+    return result.json()     //возвращаем обьект в json 
   
-}).then(function(result2) {
+}).then(function(result2) {     //извлекаем и присваиваем и 
   const temp = result2.main.temp;
   temperature.textContent = temp;
   const humidity = result2.main.humidity;
@@ -47,8 +50,7 @@ const getWeather = (city) => {                    //получаем погод�
   
   const windSpeed = result2.wind.speed;
   wind.textContent = windSpeed; 
-  console.log(result2)
-
+  
 })
 };
 changeDegree.addEventListener('click',changeUnit);
@@ -62,6 +64,29 @@ function changeUnit() {
   };
   getWeather(inputCity.value);
 }
+const changeQuote = () => {
+  const newQuote = fetch('https://favqs.com/api/qotd')
+  .then (function(result) {
+    return result.json()
+  })
+  .then(function(result2){
+    quote.textContent = result2.quote.body;
+    quote.classList.remove('transp'); //при загрузке нового удаляется скласс,делающий невидимым.classList применяется для массивов
+    quoteAuthor.textContent = result2.quote.author;
+    quoteAuthor.classList.remove('transp');
+      }
+  )
+}
+btnChangeQuote.addEventListener('click',() => {
+  btnChangeQuote.classList.add('rotation')
+  quote.classList.add('transp');//добавляю класс,который сбуде делать невидимой запись постепенно,плавно.прописывается в css сам класс
+  quoteAuthor.classList.add('transp');
+  changeQuote();
+  setTimeout(()=>{
+    btnChangeQuote.classList.remove('rotation');
+  },1000);
+});
+
 
 function showtime() {             // получаем время
     const newDate =new Date();
@@ -108,22 +133,23 @@ inputCity.addEventListener('keyup', function(event) { event.keyCode == 13 && get
 input.addEventListener('input',setLocalStorage);
 
 function setLocalStorage() {   // получает доступ, инпут=имя
-  localStorage.setItem('myName', input.value)
+  localStorage.setItem('myName', input.textContent)
 }
 
 function getLocalStorage() {    //сохраниние имени и города  
   const myName = localStorage.getItem('myName');
-  const myCity = localStorage.getItem('myCity');
+  const myCity = localStorage.getItem('myCity'); 
     if(myName) {
-    input.value =myName;
+    input.textContent =myName;
   }
   if(myCity) {
     inputCity.value = myCity;
    };
 }
-window.addEventListener('load',() => {   //при перезагрузке  сохраняется введенный город
+window.addEventListener('load',() => {   //при перезагрузке  сохраняется введенный город и выводится цитата
   getLocalStorage();
   getWeather(inputCity.value);
+  changeQuote();
 });
 
 let number = Math.floor(Math.random() * 20) + 1;  //получение случайного числа
@@ -170,6 +196,10 @@ else { number = 1
 }
 loadImage(part,number)
 }
+
+
+
+
 
 
 

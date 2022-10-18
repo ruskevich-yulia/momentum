@@ -1,7 +1,10 @@
+body {
+    color : white;
+}
 .base {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 98vh;
     align-items: center;
     justify-content: center;
     background-size: cover;
@@ -9,22 +12,40 @@
     gap: 11px;
     transition: 1s;
 }
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 75%;
+    gap: 30px;
+}
 .mus_and_weath {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 .weather {
+    width: 13%;
+    height: 100%;
     gap: 20px;
-    background-color: rgba(255,255,255,0.5);
     border-radius: 15px;
-    padding: 10px 6px;
+    padding: 10px 16px;
 }
 .weather_input {
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    color: white;
+}
+.town {
+    font-size: 25px;
+    font-variant:unset;
+}
+.icon_weather {
+    font-size: 30px;
 }
 .temper_and_descript {
+    font-size: 25px;
     display: flex;
     justify-content: space-around;
 }
@@ -33,46 +54,63 @@
     flex-direction: column;
 }
 .humidity {
+    font-size: 25px;
     display: flex;
     flex-direction: row;
+    padding: 10px 0 ;
+}
+.change_degree,
+.wind_speed,
+.description
+.humidity
+ {
+    font-size: 25px;
+    font-weight: 300;
 }
 .change_degree {
     border: none;
     border-radius: 5px;
-    border-color: rgba(255,255,255,0.1) ;
-}
+}    
 .wind_speed {
-    display: flex;
+display: flex;
 }
 .time {
-    font-size: 60px;
+    font-size: 85px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 800px;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 15px;
     padding: 0 12px;
 }
+.time,
+.btn_and_time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+};
+
 .today_container {
+    margin-top: 2%;
     display: flex;
     flex-direction: row;
-    font-size: 45px;
-    width: 90%;
+    font-size: 48px;
+    width: 100%;
     justify-content: space-between;
 }
-.day {
+.day,
+.date,
+.greetings_container  {
     display: flex;
     justify-content: center;
-    font-size: 45px;
+    font-size: 48px;
+}
+.day {
     font-weight: 800px;
-}  
-.greetings_container {
-    display: flex;
 }
 .greetings {
     display: flex;
-    font-size: 38px;
-    font-weight: 500;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    font-family: 'Times new romans';
 }
 .arrow_left,
 .arrow_right {
@@ -80,11 +118,13 @@
     transition: 0.5s;
     display: flex;
     color: white;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255,255,255,0.5);
+    width: 40px;
+    height: 60px;
     border-radius: 4px;
     padding: 5px 0;
+    color: white;
+    font-weight: bold;
+    opacity: 0.7;
  }  
 .arrow_left :hover {
     transition: 0.5s;
@@ -101,27 +141,69 @@
     width: 60px;
     border-radius: 8px;
     background-color: transparent;
-    background-color: rgba(255,255,255,0.5);
+    color:white;
+    border: 1px solid white;
+    opacity: 0.8;
 }
 .changeTime:hover {
     transition: 0.5s;
     transform: scale(1.5, 1.5);
-    background-color: gray;
+    background-color:rgba(24,174,202, 0.1);
 }
 .name {
     background-color: transparent;
     border: none;
-    font-size: 38px;
-    font-weight: 500;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 47px;
+    font-weight: 400;
+    font-family: 'Times new romans';
+    min-width: 100px;
 }
 .whiteLayer {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 15px;
     padding: 0 12px;
 }
 .town {
-    background-color: rgba(255,255,255,0.1);
-    border: none;
+ background-color: transparent;
+ color: white;
+ border: none;
 }
+.change_degree {
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+    background-color: transparent;
+}
+.quote_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.two_arrows {
+    width: 48px;
+    cursor: pointer;
+    opacity: 0.4;
+    transform: rotate(0deg);
+}
+.rotation {
+    transition: 1s;
+    transform: rotate(360deg);
+}
+.arrows {
+    display: flex;
+    justify-content: center;
+}
+.quote,
+.quote_author {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    opacity: 1;
+    transition: 0.5s;
+}
+.transp {
+ opacity:0;
+ transition: 0.5s;
+}
+
 
