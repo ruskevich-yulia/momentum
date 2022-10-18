@@ -50,8 +50,7 @@ const getWeather = (city) => {                    //получаем погод�
   
   const windSpeed = result2.wind.speed;
   wind.textContent = windSpeed; 
-  console.log(result2)
-
+  
 })
 };
 changeDegree.addEventListener('click',changeUnit);
