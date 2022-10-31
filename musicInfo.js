@@ -56,13 +56,13 @@ export const musicInfo = [  //этот массив экспортируемый
     },
     {
         artist:'Ludwig Van Beethoven',
-        artistImage:'./assets/images_for_music/classic.jpg',
+        artistImage:'./assets/images_for_music/classic.webp',
         composition:'Moonlight Sonata',
         sound:'./assets/music/Ludwig Van Beethoven - Moonlight Sonata (No. 14) 1st Movement (Adagio Sostenuto) classic.mp3'
     },
     {
         artist:'Ludwig Van Beethoven',
-        artistImage:'./assets/images_for_music/classic.jpg',
+        artistImage:'./assets/images_for_music/classic.webp',
         composition:'Symphony No. 5. Allegro Con Brio',
         sound:'./assets/music/Ludwig Van Beethoven - Symphony No. 5. Allegro Con Brio”  classic.mp3'
     },
@@ -110,8 +110,8 @@ export const musicInfo = [  //этот массив экспортируемый
     },
     {
         artist:'Wolfgang Amadeus Mozart',
-        artistImage:'./assets/images_for_music/classic.jpg',
+        artistImage:'./assets/images_for_music/classic.webp',
         composition:'Simfonia #40',
-        sound:'./assets/music/Wolfgang Amadeus Mozart - Simfonia #40  classic.mp3'
+        sound:'./assets/music/Wolfgang_Amadeus_Mozart_Simfonia_40_classic.mp3'
     }
 ]
