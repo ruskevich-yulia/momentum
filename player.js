@@ -21,7 +21,7 @@ soundImage.src = musicInfo[i].artistImage;
 artist.textContent = musicInfo[i].artist;
 composition.textContent = musicInfo[i].composition;
 audio.src = musicInfo[i].sound; //мы должны записать путь,по крому лежит песня
-audio.volume = 0.1;// забыла
+audio.volume = 0.2;// т е изначально звук на 20 процентах
 
 let isPlay = false; // т к при загрузке плеер не играет
 const playPauseSound = () => {
@@ -37,7 +37,7 @@ const playPauseSound = () => {
 playButton.addEventListener('click',playPauseSound);
 
 const nextComposition = () => {
-  if (i < musicInfo.length) {
+  if (i < musicInfo.length-1) {
     i = i + 1;
   } else {
     i = 0;
@@ -47,20 +47,23 @@ const nextComposition = () => {
   artist.textContent = musicInfo[i].artist;
   composition.textContent = musicInfo[i].composition;
   audio.play()
+  playButton.textContent = '❚❚';
 };
 audio.addEventListener('ended',nextComposition)
 
 const changePrevSong = () => {
+  
   if(i > 0) {
     i = i - 1;
   } else {
-   i = musicInfo.length; 
+   i = musicInfo.length-1; 
   }
   audio.src = musicInfo[i].sound
   soundImage.src = musicInfo[i].artistImage;
   artist.textContent = musicInfo[i].artist;
   composition.textContent = musicInfo[i].composition;
   audio.play()
+  playButton.textContent = '❚❚';
 }
 
 previousSong.addEventListener('click',changePrevSong)
